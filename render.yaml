@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: krishimitra-api
+    env: python
+    buildCommand: pip install -r reference/requirements.txt
+    startCommand: uvicorn reference.backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
